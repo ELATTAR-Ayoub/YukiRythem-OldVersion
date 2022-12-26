@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="./src/css/playerPopupComments.css">
     <link rel="stylesheet" href="./src/css/warning.css">
     <link rel="stylesheet" href="./src/css/snow.css">
-    <script src="./src/js/player.js" defer></script>
     <script src="./src/js/index.js" defer></script>
+    <script src="./src/js/player.js" defer></script>
 </head>
 
 <body>
@@ -45,7 +45,10 @@
         <header>
             <div class="icon-container">
                 <a href="">
-                    yuki<span>rythem</span>
+                    yuki<span>rythem</span> <small style="font-size: .8rem;
+                    align-self: self-end;
+                    padding-left: 0.3rem;
+                    font-weight: 100;">beta</small>
                 </a>
             </div>
             <nav>
@@ -58,7 +61,7 @@
                 </button>
                 <div id="sideNav" class="sidenav">
                     <a id="closeSideNav-btn" class="closebtn">&times;</a>
-                    <a href="/">home</a>
+                    <!-- <a href="/">home</a> -->
                     <a class="active" href="/player">
                         player
                         <i class="far x fa-music"></i>
@@ -73,7 +76,7 @@
                     <!-- <a class="register" href="/register">register</a> -->
                 </div>
                 <ul>
-                    <li><a href="/">home</a></li>
+                    <!-- <li><a href="/">home</a></li> -->
                     <li><a class="active" href="/player">player</a></li>
                     <li><a href="mailto:elattarayoub000@gmail.com" target="_blank">contact me</a></li>
                     <!-- <li><a href="/create-playlist">create playlist</a></li> -->
@@ -90,40 +93,42 @@
             </aside>
             <aside style="order: -1;">aside</aside>
             <div class="container">
-                <div class="server-info" id="songIDList">
-                    <% for(let i=0 ; i < songList.length ; i++) { %>
-                        <%=songList[i].videoId + " -thenwehave- " %>
-                            <% } %>
-                </div>
-                <div class="server-info" id="songTitleList">
-                    <% for(let i=0 ; i < songList.length ; i++) { %>
-                        <%=songList[i].songTitle + " -thenwehave- " %>
-                            <% } %>
-                </div>
-                <div class="server-info" id="ownerNameList">
-                    <% for(let i=0 ; i < songList.length ; i++) { %>
-                        <%=songList[i].songOwner + " -thenwehave- " %>
-                            <% } %>
-                </div>
-                <div class="server-info" id="videoURLList">
-                    <% for(let i=0 ; i < songList.length ; i++) { %>
-                        <%=songList[i].videoURL + " -thenwehave- " %>
-                            <% } %>
-                </div>
-                <div class="server-info" id="ownerURLList">
-                    <% for(let i=0 ; i < songList.length ; i++) { %>
-                        <%=songList[i].ownerURL + " -thenwehave- " %>
-                            <% } %>
-                </div>
-                <div class="server-info" id="thumbnailList">
-                    <% for(let i=0 ; i < songList.length ; i++) { %>
-                        <% try { %>
-                            <%=songList[i].thumbnail1 + " -thenwehave- " %>
-                                <% } catch { %>
-                                    <%=songList[i].thumbnail2 + " -thenwehave- " %>
-                                        <% } %>
+                <% if(songList){ %>
+                    <div class="server-info" id="songIDList">
+                        <% for(let i=0 ; i < songList.length ; i++) { %>
+                            <%=songList[i].videoId + " -thenwehave- " %>
+                                <% } %>
+                    </div>
+                    <div class="server-info" id="songTitleList">
+                        <% for(let i=0 ; i < songList.length ; i++) { %>
+                            <%=songList[i].songTitle + " -thenwehave- " %>
+                                <% } %>
+                    </div>
+                    <div class="server-info" id="ownerNameList">
+                        <% for(let i=0 ; i < songList.length ; i++) { %>
+                            <%=songList[i].songOwner + " -thenwehave- " %>
+                                <% } %>
+                    </div>
+                    <div class="server-info" id="videoURLList">
+                        <% for(let i=0 ; i < songList.length ; i++) { %>
+                            <%=songList[i].videoURL + " -thenwehave- " %>
+                                <% } %>
+                    </div>
+                    <div class="server-info" id="ownerURLList">
+                        <% for(let i=0 ; i < songList.length ; i++) { %>
+                            <%=songList[i].ownerURL + " -thenwehave- " %>
+                                <% } %>
+                    </div>
+                    <div class="server-info" id="thumbnailList">
+                        <% for(let i=0 ; i < songList.length ; i++) { %>
+                            <% try { %>
+                                <%=songList[i].thumbnail1 + " -thenwehave- " %>
+                                    <% } catch { %>
+                                        <%=songList[i].thumbnail2 + " -thenwehave- " %>
                                             <% } %>
-                </div>
+                                                <% } %>
+                    </div>
+                <% } %>
                 <div class="server-info" id="song"></div>
                 <div class="main">
                     <div class="header">

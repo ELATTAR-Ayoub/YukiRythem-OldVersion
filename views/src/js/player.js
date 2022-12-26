@@ -7,7 +7,6 @@
 // input
 const abc = document.getElementById('musicSourceSubmit');
 // 
-const queries_opener = document.getElementById('queries-opener');
 const queries = document.getElementById('queries');
 const queries_ol = document.getElementById('queries-ol');
 const queries_ol_items = document.getElementsByClassName('queries-list-items');

@@ -12,7 +12,8 @@ const app = express();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
-const session = require('express-session');
+const session = require('express-session')
+const MemoryStore = require('memorystore')(session)
 // const bodyParser = require('body-parser');
 // const encoder = bodyParser.urlencoded();
 const mysql = require('mysql');
@@ -22,6 +23,10 @@ const mysql = require('mysql');
 //     password: '',
 //     database: 'yukiRythem'
 // })
+
+
+
+
 const methodOverride = require('method-override');
 const { getVideo, getPlaylist, search } = require('@fabricio-191/youtube')
     .setDefaultOptions({
@@ -65,6 +70,7 @@ var passLength = 0;
 // });
 
 
+ 
 app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('./views'));
@@ -81,17 +87,28 @@ app.use(express.static(process.env.PWD + './public/fonts'));
 app.use(express.static(process.env.PWD + './public/video'));
 app.use(flash());
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
+    resave: true,
+    saveUninitialized: true,
+    name: 'YukiRythem',
+    proxy: true,
+    secret: 'cat',
+}))
+// app.use(session({
+//     secret: 'secret',
+//     resave: true,
+//     saveUninitialized: false
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
-    // res.render('index.ejs', { name: 'ELATTAR Ayoub' });
-    res.redirect('/player')
+    res.render('player.ejs', { songList: songList, });
+    // res.redirect('/player')
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {

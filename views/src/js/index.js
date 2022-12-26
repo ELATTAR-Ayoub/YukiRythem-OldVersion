@@ -1,6 +1,7 @@
 // inputs
 const queries_opener_xSign = document.getElementById('queries-opener-x-Sign');
 const queries_opener_vSign = document.getElementById('queries-opener-v-Sign');
+const queries_opener = document.getElementById('queries-opener');
 const header_menu = document.getElementById('header-menu');
 const header_menu_content = document.getElementById('header-menu-content');
 const remove_song_btn = document.getElementById('remove-song-btn');
