@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yukiRythem | Login</title>
+    <link rel="stylesheet" href="./src/css/main.css">
+</head>
+
+<body>
+
+    <section class="sign-in-out-container">
+        <div class="under-section">
+            <a href="./register" class="button-signin-style" id="signShowbtn">sign up</a>
+            <div></div>
+        </div>
+
+        <div class="signin-container" id="signin-section">
+            <p class="header">we are <span>abyss</span></p>
+            <p class="desc">welcome home! log in to your
+                account to view today’s
+                last fashion:</p>
+            <div class="signin-section">
+                <form action="/login" method="POST">
+                    <div class="username-section">
+                        <input class="form" type="text" name="username" autocomplete="" id="username" placeholder=" "
+                            maxlength="15" required>
+                        <label for="username" class="label-username">
+                            <span class="content-username">name</span>
+                        </label>
+                        <p class="signError">
+                            <% if (messages.error) { %>
+                                <%= messages.error %>
+                                    <% } %>
+                        </p>
+                    </div>
+                    <div class="password-section">
+                        <input class="form" type="password" autocomplete="" name="password" id="password"
+                            placeholder=" " maxlength="30" required>
+                        <label for="password" class="label-password">
+                            <span class="content-password">password</span>
+                        </label>
+                        <p class="signError">
+                            <% if (messages.error) { %>
+                                <%= messages.error %>
+                                    <% } %>
+                        </p>
+                    </div>
+                    <a href="#" class="sign-link">forgot your password?</a>
+                    <div class="submit-section">
+                        <input class="form button-signin-style" type="submit" id="signin_submit" value="LOGIN">
+                        <label for="signin_submit" class="label-send">
+                        </label>
+                    </div>
+                </form>
+                <p class="sign-using">- or sign in using -</p>
+            </div>
+
+            <a href="" class="sign-social facebook-link">facebook</a>
+            <a href="" class="sign-social google-link">google</a>
+            <a href="" class="sign-social twitter-link">twitter</a>
+        </div>
+        <!--signin-container -->
+
+    </section>
+
+    <p class="Signature">Created with ❤️️ by ELATTAR Ayoub</p>
+</body>
+
+</html>

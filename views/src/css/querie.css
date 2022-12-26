@@ -1,0 +1,203 @@
+/* queries */
+
+.queries {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 0%;
+    padding: var(--paddingSmall) 0 0 0;
+    background-color: var(--colorBGSecondary);
+    box-shadow: 0px -3px 13px 0px #000000ad;
+    border-radius: 0px 5px 5px 0;
+    transition: height 1s ease-in-out;
+    overflow: hidden;
+    pointer-events: all;
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+}
+
+.queries .no-queries {
+        display: grid;
+        align-content: center;
+        text-align: center;
+        vertical-align: middle;
+        grid-row: span 20;
+}
+
+.queries .no-queries h3 {
+    font-size: var(--fontBig);
+}
+
+
+.queries .queries-list {
+    overflow: auto;
+    /* grid-row: span 17; */
+    grid-row: span 18;
+}
+
+.queries .bottomControler {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    grid-row: span 2;
+    font-size: var(--fontSmall);
+    font-weight: bold;
+    border-top: 2px solid var(--colorSecondary);
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.722);
+}
+
+.queries .delete-inp {
+    grid-row: span 1;
+    display: none;
+}
+
+.queries .bottomControler .queries-button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colorPrimary);
+    text-decoration: none;
+    padding: var(--paddingSmall);
+    background-color: var(--colorBGSecondary);
+    border-left: 0.5px solid var(--colorSecondary);
+    cursor: pointer;
+}
+
+.queries .bottomControler .queries-button:first-child{
+    border: none;
+}
+
+.queries .bottomControler .queries-button:hover{
+    color: var(--colorPrimary);
+    background-color: var(--colorBlack);
+}
+
+
+
+.queries .bottomControler .queries-button i{
+    padding-left: var(--paddingMini);
+}
+
+.queries .delete-inp form {
+    width: 100%;
+    height: 100%;
+}
+
+.queries .delete-inp form input {
+    grid-column: 1 / span 7;
+}
+
+.queries .delete-inp form button {
+    grid-column: span 3;
+}
+
+
+.queries ol {
+    list-style: none;
+    padding: 0 var(--paddingSmall);
+    counter-reset: counter;
+}
+
+.queries li {
+    position: relative;
+    counter-increment: counter;
+    padding: var(--paddingMini) 0;
+    font-size: 1.1em;
+    color: var(--colorPrimary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    border-bottom: 1px solid var(--colorSecondary);
+}
+
+.queries li {
+    position: relative;
+    opacity: .7;
+    transition: background-color .5s ease-in-out;
+}
+
+.queries li::before {
+    content: counter(counter) " - ";
+    color: var(--colorSecondary);
+    font-weight: bold;
+}
+
+.queries li:hover {
+    border: 2px solid var(--colorSecondary);
+    opacity: 1;
+    padding: 5px;
+    background-color: var(--colorBlack);
+}
+
+.queries li:focus {
+    background-color: var(--colorSecondary);
+    color: var(--colorBlack);
+}
+
+.queries li .li-controle {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    border: none;
+    outline: none;
+    opacity: 1;
+    font-size: var(--fontSmall);
+    font-weight: bold;
+    cursor: pointer;
+    transition: width 1s ease-in-out;
+    visibility: hidden;
+}
+
+.queries li:hover .li-controle{
+    width: 50%;
+    visibility: visible;
+}   
+
+.queries li .play-li-btn {
+    color: var(--colorSecondary);
+    background-color: var(--colorPrimary);
+    left: 0;
+    top: 0;
+}
+
+.queries li .play-li-btn:hover {
+    background-color: rgb(215, 231, 241);
+}
+
+.queries li .remove-li-btn {
+    color: var(--colorSecondary);
+    background-color: var(--colorBGSecondary);
+    right: 0;
+    top: 0;
+}
+
+.queries li .remove-li-btn:hover {
+    color: var(--colorPrimary);
+}
+
+
+@media screen and (max-width: 1320px) {
+    .queries-opener {
+        display: grid;
+    }
+    .queries {
+        width: 0px;
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 764px) {
+
+}
+
+@media screen and (max-width: 450px) {
+
+}

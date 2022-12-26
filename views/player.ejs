@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yukiRythem | Player</title>
+    <link rel="stylesheet" href="./src/css-webfont/all.css">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/range.css">
+    <link rel="stylesheet" href="./src/css/spiner.css">
+    <link rel="stylesheet" href="./src/css/loader.css">
+    <link rel="stylesheet" href="./src/css/player.css">
+    <link rel="stylesheet" href="./src/css/querie.css">
+    <link rel="stylesheet" href="./src/css/playerPopupComments.css">
+    <link rel="stylesheet" href="./src/css/warning.css">
+    <link rel="stylesheet" href="./src/css/snow.css">
+    <script src="./src/js/player.js" defer></script>
+    <script src="./src/js/index.js" defer></script>
+</head>
+
+<body>
+    <div class="copie" id="copie">
+        copied
+    </div>
+    <div class="warning" id="remove-all-div">
+        <div class="warning-container">
+            <div class="warning-msg">
+                <h2>warning</h2>
+                <p>this will remove all the song from the querie, are you sure?</p>
+            </div>
+            <div class="warning-controle">
+                <a class="yes" href="/resetPlayer">yes i'm sure</a>
+                <button class="no" id="hide-warning">cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="spiner" id="spiner">
+        <div class="heart">
+            <div></div>
+        </div>
+    </div>
+    <div class="flex-container">
+        <header>
+            <div class="icon-container">
+                <a href="">
+                    yuki<span>rythem</span>
+                </a>
+            </div>
+            <nav>
+                <button id="OpenSideNav-btn">
+                    <div class="icon">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                </button>
+                <div id="sideNav" class="sidenav">
+                    <a id="closeSideNav-btn" class="closebtn">&times;</a>
+                    <a href="/">home</a>
+                    <a class="active" href="/player">
+                        player
+                        <i class="far x fa-music"></i>
+                    </a>
+                    <!-- <a href="/create-playlist">
+                        create playlist
+                        <i class="far x fa-crown"></i>
+                    </a> -->
+                    <a href="mailto:elattarayoub000@gmail.com" target="_blank">contact me</a>
+                    <!-- <a href="/about">about</a> -->
+                    <!-- <a href="/login">sign in</a> -->
+                    <!-- <a class="register" href="/register">register</a> -->
+                </div>
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a class="active" href="/player">player</a></li>
+                    <li><a href="mailto:elattarayoub000@gmail.com" target="_blank">contact me</a></li>
+                    <!-- <li><a href="/create-playlist">create playlist</a></li> -->
+                    <!-- <li><a href="/about">about</a></li> -->
+                    <!-- <li><a href="mailto:elattarayoub@gmail.com" target="_blank">contact us</a></li> -->
+                    <!-- <li><a href="/login">sign in</a></li> -->
+                    <!-- <li><a class="register" href="/register">register</a></li> -->
+                </ul>
+            </nav>
+        </header>
+        <main id="main">
+            <aside>
+                aside
+            </aside>
+            <aside style="order: -1;">aside</aside>
+            <div class="container">
+                <div class="server-info" id="songIDList">
+                    <% for(let i=0 ; i < songList.length ; i++) { %>
+                        <%=songList[i].videoId + " -thenwehave- " %>
+                            <% } %>
+                </div>
+                <div class="server-info" id="songTitleList">
+                    <% for(let i=0 ; i < songList.length ; i++) { %>
+                        <%=songList[i].songTitle + " -thenwehave- " %>
+                            <% } %>
+                </div>
+                <div class="server-info" id="ownerNameList">
+                    <% for(let i=0 ; i < songList.length ; i++) { %>
+                        <%=songList[i].songOwner + " -thenwehave- " %>
+                            <% } %>
+                </div>
+                <div class="server-info" id="videoURLList">
+                    <% for(let i=0 ; i < songList.length ; i++) { %>
+                        <%=songList[i].videoURL + " -thenwehave- " %>
+                            <% } %>
+                </div>
+                <div class="server-info" id="ownerURLList">
+                    <% for(let i=0 ; i < songList.length ; i++) { %>
+                        <%=songList[i].ownerURL + " -thenwehave- " %>
+                            <% } %>
+                </div>
+                <div class="server-info" id="thumbnailList">
+                    <% for(let i=0 ; i < songList.length ; i++) { %>
+                        <% try { %>
+                            <%=songList[i].thumbnail1 + " -thenwehave- " %>
+                                <% } catch { %>
+                                    <%=songList[i].thumbnail2 + " -thenwehave- " %>
+                                        <% } %>
+                                            <% } %>
+                </div>
+                <div class="server-info" id="song"></div>
+                <div class="main">
+                    <div class="header">
+                        <div class="queries-opener" id="queries-opener">
+                            <svg id="queries-opener-v-Sign" width="16" height="10" viewBox="0 0 16 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.27734 9.67969C7.59375 9.99609 8.12109 9.99609 8.4375 9.67969L15.293 2.85938C15.6094 2.50781 15.6094 1.98047 15.293 1.66406L14.4844 0.855469C14.168 0.539062 13.6406 0.539062 13.2891 0.855469L7.875 6.26953L2.42578 0.855469C2.07422 0.539062 1.54688 0.539062 1.23047 0.855469L0.421875 1.66406C0.105469 1.98047 0.105469 2.50781 0.421875 2.85938L7.27734 9.67969Z"
+                                    fill="#E9F0F5" />
+                            </svg>
+                            <svg id="queries-opener-x-Sign" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.12 0L8 6.19964L1.88 0L0 1.90862L8 10.0304L16 1.90862L14.12 0Z"
+                                    fill="#E9F0F5" />
+                                <path d="M8 5.9696L0 14.0914L1.88 16L8 9.80039L14.12 16L16 14.0914L8 5.9696Z"
+                                    fill="#E9F0F5" />
+                            </svg>
+                        </div>
+                        <div class="header-menu" id="header-menu">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <div id="header-menu-content" class="header-menu-content">
+                                <div id="share-song">
+                                    <i class="fas fa-share"></i>
+                                    share
+                                </div>
+                                <div id="copy-songUrl">
+                                    <i class="far fa-copy"></i>
+                                    copy song url
+                                </div>
+                                <div id="copy-ownerUrl">
+                                    <i class="far fa-copy"></i>
+                                    copy owner url
+                                </div>
+                                <div id="visit-PlaylistOwner">
+                                    <i class="fas fa-eye"></i>
+                                    visit playlist owner
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <section class="main-controller">
+                            <div class="thumbnail" id="thumbnail-container">
+                                <div class="spiner" id="default-thumbnail">
+                                    <div class="heart">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <img id="thumbnail" src="" alt="">
+                            </div>
+                            <div class="song-info">
+                                <div class="song-title">
+                                    <span>
+                                    </span>
+                                </div>
+                                <div class="song-owner">
+                                    <a href="" target="_"> </a>
+                                    <span class="popupComment fromBottom">video owner</span>
+                                </div>
+                            </div>
+                            <div class="controller">
+                                <div class="next" id="next">
+                                    <i class="fas fa-2x fa-forward"></i>
+                                    <span class="popupComment fromTop">next song</span>
+                                </div>
+                                <div class="before" id="before">
+                                    <i class="fas fa-2x fa-backward"></i>
+                                    <span class="popupComment fromTop">previous song</span>
+                                </div>
+                                <div class="play" id="play" data-icon="P" aria-label="play pause toggle">
+                                    <i id="play-phase" class="fas fa-2x fa-play"></i>
+                                    <i id="pause-phase" class="fas fa-2x fa-pause"></i>
+                                    <span class="popupComment fromTop">pause</span>
+
+                                </div>
+                            </div>
+                        </section>
+                        <section class="tools-section">
+                            <div class="song-range">
+                                <input type="range" name="" id="song-range-inp" min="0" max="100" value="0">
+                                <div class="time" id="song-timer" aria-label="timer">
+                                    <div class="load-spiner" id="load-spiner">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <span>0:00 - 0:00</span>
+                                </div>
+                            </div>
+                            <div class="song-tools">
+                                <div class="tools">
+                                    <div class="shuffle" id="shuffle">
+                                        <i id="shuffle" class="fas  fa-random">
+                                            <div class="forward-bracket"></div>
+                                        </i>
+                                        <span class="popupComment fromTop">start shuffling</span>
+                                    </div>
+                                    <div class="loop" id="loop-songs">
+                                        <i id="loop-infi" class="fas  fa-infinity">
+                                            <div class="forward-bracket"></div>
+                                        </i>
+                                        <span id="loop-comment" class="popupComment fromTop">start looping</span>
+                                    </div>
+                                    <div class="hearth" id="hearth">
+                                        <i id="loved-like" class="fas fa-2x fa-heart"></i>
+                                        <span class="popupComment fromTop">add to loved list</span>
+                                    </div>
+                                </div>
+
+                                <div class="volume">
+                                    <span>0</span>
+                                    <input type="range" name="song-volume" id="song-volume" max="100" min="0" step="10"
+                                        value="50">
+                                </div>
+                            </div>
+
+                        </section>
+                        <form method="POST" action="/player" id="user_input_form" name="user_input_form"
+                            class="player-form">
+                            <input type="text" autocomplete="" name="musicSource" id="musicSource" spellcheck="true"
+                                placeholder="url / name of song">
+                            <button type="submit" id="musicSourceSubmit">
+                                search
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="queries" id="queries">
+                        <div class="no-queries" id="no-queries">
+                            <h3>┐(￣ヘ￣;)┌</h3>
+                            <p>There's no songs here at the moment!</p>
+                        </div>
+                        <div class="queries-list">
+                            <ol id="queries-ol">
+                            </ol>
+                        </div>
+                        <div class="bottomControler">
+                            <div class="queries-button" id="remove-song-btn">
+                                remove song
+                            </div>
+                            <div class="queries-button" id="remove-all-btn">
+                                remove all
+                                <i class="fas fa-trash-alt"></i>
+                            </div>
+                        </div>
+                        <div class="delete-inp" id="delete-song-div">
+                            <form method="POST" action="/player" id="delete_song_form" name="delete_song_form"
+                                class="player-form">
+                                <input type="text" name="deleteSongIndex" id="deleteSongIndex"
+                                    max="<%= songList.length %>" min="1" step="1" placeholder="number of the song">
+                                <!-- <label for="deleteSongIndex"><span>url / name</span></label> -->
+                                <button type="submit" id="deleteSongIndex_Submit">
+                                    <i class="fas fa-2x fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div> <!-- container end -->
+
+
+            <!-- <div id="yuki" class="yuki">
+                <img src="./public/Healer_Class.png" alt="">
+                <span id="yuki-talk" class="popupComment fromLeft yuki-talk">...</span>
+            </div> -->
+
+
+        </main>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+
+</html>

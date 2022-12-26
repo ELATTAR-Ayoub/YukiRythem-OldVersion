@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yukiRythem | Register</title>
+    <link rel="stylesheet" href="./src/css/main.css">
+</head>
+
+<body>
+
+    <section class="sign-in-out-container">
+        <div class="under-section">
+            <a href="./login" class="button-signin-style" id="logShowbtn">login</a>
+            <div></div>
+        </div>
+        <div class="signup-container" id="signup-section">
+            <p class="header">we are <span>abyss</span></p>
+            <p class="desc">Welcome to us! Create a new
+                account to view today’s
+                last fashion:</p>
+            <div class="signup-section">
+                <form action="/register" method="POST">
+                    <div class="username-section">
+                        <input class="form" type="text" name="username" autocomplete="" id="username" placeholder=" "
+                            maxlength="15" required>
+                        <label for="username" class="label-username">
+                            <span class="content-username">name</span>
+                        </label>
+                        <p class="signError">
+                            <% if (messages.error) { %>
+                                <%= messages.error %>
+                                    <% } %>
+                        </p>
+                    </div>
+                    <div class="email-section">
+                        <input class="form" type="email" autocomplete="" name="email" id="email" placeholder=" "
+                            maxlength="36" required>
+                        <label for="email" class="label-email">
+                            <span class="content-email">email</span>
+                        </label>
+                        <p class="signError">
+                            <% if (messages.error) { %>
+                                <%= messages.error %>
+                                    <% } %>
+                        </p>
+                    </div>
+                    <div class="password-section">
+                        <input class="form" type="password" autocomplete="" name="password" id="password"
+                            placeholder=" " maxlength="30" required>
+                        <label for="password" class="label-password">
+                            <span class="content-password">password</span>
+                        </label>
+                    </div>
+                    <div class="submit-section">
+                        <input class="form button-signin-style" type="submit" id="signup_submit" value="SIGN IN">
+                        <label for="signup_submit" class="label-send">
+                        </label>
+                    </div>
+                </form>
+                <p class="sign-using">- or sign up using -</p>
+            </div>
+
+            <a href="" class="sign-social facebook-link">facebook</a>
+            <a href="" class="sign-social google-link">google</a>
+            <a href="" class="sign-social twitter-link">twitter</a>
+        </div>
+
+    </section>
+
+    <p class="Signature">Created with ❤️️ by ELATTAR Ayoub</p>
+</body>
+
+</html>

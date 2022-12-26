@@ -1,0 +1,29 @@
+{
+  "name": "yukirythem",
+  "version": "1.0.0",
+  "description": "yukirythem allows you to play any song you want, just by entering its name or its url",
+  "main": "server.js",
+  "scripts": {
+    "build": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "ELATTAR Ayoub",
+  "license": "MIT",
+  "dependencies": {
+    "@fabricio-191/youtube": "0.0.2-6",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}

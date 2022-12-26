@@ -1,0 +1,118 @@
+.popupComment {
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: var(--colorBGSecondary);
+    color: var(--colorSecondary);
+    padding: var(--paddingMini);
+    text-align: center;
+    border-radius: 6px;
+    padding: 7px 7px;
+    position: absolute;
+    z-index: 1001;
+    transition: 0.3s opacity;
+}
+
+.fromTop {
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fromBottom {
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fromLeft {
+    top: 50%;
+    left: 250%;
+    transform: translate(-50%, -50%);
+}
+
+.fromRight {
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fromTop::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width:var(--paddingMini);
+    border-style: solid;
+    border-color: var(--colorBGSecondary) transparent transparent transparent;
+}
+
+.fromBottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    margin-left: -5px;
+    border-width:var(--paddingMini);
+    border-style: solid;
+    border-color: transparent transparent var(--colorBGSecondary) transparent;
+}
+
+.fromLeft::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -3.5%;
+    transform: translateY(-25%);
+    margin-left: -5px;
+    border-width:var(--paddingMini);
+    border-style: solid;
+    border-color: transparent var(--colorBGSecondary) transparent transparent;
+}
+
+.fromRight::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -7%;
+    transform: translateY(-25%);
+    margin-left: -5px;
+    border-width:var(--paddingMini);
+    border-style: solid;
+    border-color: transparent transparent transparent var(--colorBGSecondary);
+}
+
+
+.source-out:hover .popupComment,
+.controller .hearth:hover .popupComment,
+.controller .next:hover .popupComment,
+.controller .before:hover .popupComment,
+.controller .play:hover .popupComment,
+.song-owner a:hover .popupComment,
+.tools .loop:hover .popupComment,
+.tools-section .song-tools .hearth:hover .popupComment,
+.tools-section .song-tools .shuffle:hover .popupComment,
+.queries-opener:hover .popupComment {    
+    opacity: 1;
+    visibility: visible;
+}
+
+.controller .hearth, 
+.controller .next,
+.controller .before,
+.controller .play,
+.song-owner,
+.tools-section .song-tools .hearth,
+.tools-section .song-tools .shuffle,
+.tools .loop {
+    position: relative;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .popupComment {
+        display: none;
+    }
+    
+}
