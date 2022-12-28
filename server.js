@@ -49,6 +49,7 @@ var songObject = {};
 //     thumbnail2: '',
 // };
 var songList = [];
+const PORT = process.env.PORT || 3000;
 
 // 
 const initializePassport = require('./passport-config');
@@ -378,4 +379,4 @@ function checkThumbnailsPlaylist(data, i) {
     }
 }
 
-app.listen(3000);
+app.listen(PORT);
